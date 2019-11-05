@@ -1,0 +1,13 @@
+name: rnaseq
+# channels priority
+# see https://bioconda.github.io/
+# conda-forge has highest prioriy
+channels:
+    - defaults
+    - bioconda
+    - conda-forge
+dependencies:
+    - hisat2    
+    - samtools
+    - trimmomatic
+

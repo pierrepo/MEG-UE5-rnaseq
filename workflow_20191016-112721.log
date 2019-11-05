@@ -1,0 +1,99 @@
+Running workflow2.sh for ubuntu on machine64da52a0-b5d7-4ea4-a207-be265d2b4b96
+#=====================================================================
+# 0. Data & software                                                  
+#=====================================================================
+data to work with:
+41M	chr6p_samples/GUP-1_6p_R1.fastq.gz
+42M	chr6p_samples/GUP-1_6p_R2.fastq.gz
+30M	chr6p_samples/GUP-3_6p_R1.fastq.gz
+31M	chr6p_samples/GUP-3_6p_R2.fastq.gz
+58M	chr6p_genomes/chr6p-cox.fa
+58M	chr6p_genomes/chr6p-pgf.fa
+7.0M	chr6p_annotations/chr6-cox.gtf
+8.9M	chr6p_annotations/chr6-pgf.gtf
+273M	total
+trimmomatic version:
+0.39
+hisat2 version:
+/home/ubuntu/.conda/envs/rnaseq/bin/hisat2-align-s version 2.1.0
+samtools version:
+samtools 1.9
+#=====================================================================
+# 1. trim/clean samples                                               
+#=====================================================================
+start: 2019-10-16 11:27:21
+end  : 2019-10-16 11:27:54
+#=====================================================================
+# 2. index reference genomes                                          
+#=====================================================================
+start: 2019-10-16 11:27:54
+end  : 2019-10-16 11:29:30
+#=====================================================================
+# 3. map samples on genome + index maping                             
+#=====================================================================
+start: 2019-10-16 11:29:30
+map GUP-1_6p on chr6p-pgf
+map GUP-3_6p on chr6p-pgf
+map GUP-1_6p on chr6p-cox
+map GUP-3_6p on chr6p-cox
+end  : 2019-10-16 11:31:54
+#===================================================================== 
+# 4. count number of mapped reads (with and without mismatches)        
+#===================================================================== 
+start: 2019-10-16 11:31:54
+Sample   on genome   :  total_reads no_mismatch_reads percentage
+GUP-1_6p on chr6p-pgf:  190262 176544 92.700
+GUP-1_6p on chr6p-cox:  139919 75468 53.900
+GUP-3_6p on chr6p-pgf:  82945 53182 64.100
+GUP-3_6p on chr6p-cox:  99059 92496 93.300
+#===================================================================== 
+# Data: initial + generated                                            
+#===================================================================== 
+7.0M	chr6p_annotations/chr6-cox.gtf
+8.9M	chr6p_annotations/chr6-pgf.gtf
+58M	chr6p_genomes/chr6p-cox.fa
+58M	chr6p_genomes/chr6p-pgf.fa
+23M	chr6p_index/chr6p-cox.1.ht2
+15M	chr6p_index/chr6p-cox.2.ht2
+4.0K	chr6p_index/chr6p-cox.3.ht2
+15M	chr6p_index/chr6p-cox.4.ht2
+25M	chr6p_index/chr6p-cox.5.ht2
+15M	chr6p_index/chr6p-cox.6.ht2
+4.0K	chr6p_index/chr6p-cox.7.ht2
+4.0K	chr6p_index/chr6p-cox.8.ht2
+58M	chr6p_index/chr6p-cox.fa
+23M	chr6p_index/chr6p-pgf.1.ht2
+15M	chr6p_index/chr6p-pgf.2.ht2
+4.0K	chr6p_index/chr6p-pgf.3.ht2
+15M	chr6p_index/chr6p-pgf.4.ht2
+25M	chr6p_index/chr6p-pgf.5.ht2
+15M	chr6p_index/chr6p-pgf.6.ht2
+4.0K	chr6p_index/chr6p-pgf.7.ht2
+4.0K	chr6p_index/chr6p-pgf.8.ht2
+58M	chr6p_index/chr6p-pgf.fa
+76K	chr6p_map/GUP-1_6p_on_chr6p-cox.bai
+74M	chr6p_map/GUP-1_6p_on_chr6p-cox.bam
+4.0K	chr6p_map/GUP-1_6p_on_chr6p-cox.log
+76K	chr6p_map/GUP-1_6p_on_chr6p-pgf.bai
+74M	chr6p_map/GUP-1_6p_on_chr6p-pgf.bam
+4.0K	chr6p_map/GUP-1_6p_on_chr6p-pgf.log
+68K	chr6p_map/GUP-3_6p_on_chr6p-cox.bai
+55M	chr6p_map/GUP-3_6p_on_chr6p-cox.bam
+4.0K	chr6p_map/GUP-3_6p_on_chr6p-cox.log
+68K	chr6p_map/GUP-3_6p_on_chr6p-pgf.bai
+56M	chr6p_map/GUP-3_6p_on_chr6p-pgf.bam
+4.0K	chr6p_map/GUP-3_6p_on_chr6p-pgf.log
+41M	chr6p_samples/GUP-1_6p_R1.fastq.gz
+42M	chr6p_samples/GUP-1_6p_R2.fastq.gz
+30M	chr6p_samples/GUP-3_6p_R1.fastq.gz
+31M	chr6p_samples/GUP-3_6p_R2.fastq.gz
+37M	chr6p_trim/GUP-1_6p_trim_1P.fastq.gz
+756K	chr6p_trim/GUP-1_6p_trim_1U.fastq.gz
+40M	chr6p_trim/GUP-1_6p_trim_2P.fastq.gz
+488K	chr6p_trim/GUP-1_6p_trim_2U.fastq.gz
+28M	chr6p_trim/GUP-3_6p_trim_1P.fastq.gz
+620K	chr6p_trim/GUP-3_6p_trim_1U.fastq.gz
+29M	chr6p_trim/GUP-3_6p_trim_2P.fastq.gz
+336K	chr6p_trim/GUP-3_6p_trim_2U.fastq.gz
+961M	total
+Well done!
