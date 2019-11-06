@@ -42,12 +42,18 @@ b9b03aea7774909bbd1664bd18b6142a
 
 ## 2. Préparation des logiciels
 
-Les outils trimmomatic, hisat2 et samtools nécessaires pour cette analyse RNA-seq ont été installés avec le gestionnaire conda, qui est désormais un standard en bioinformatique.
+Les outils trimmomatic, hisat2 et samtools nécessaires pour cette analyse RNA-seq ont été installés avec le gestionnaire de paquet conda, qui est désormais un standard en bioinformatique.
 
 Pour que ces outils soient disponibles, entrez la commande :
 ```
 $ conda activate rnaseq
 ```
+
+La gauche de votre invite de commande est modifiée pour devenir : 
+```
+(rnaseq) login@babyplasma:~$
+```
+
 
 Vérifiez par exemple que samtools est bien disponible en tapant la commande :
 ```
@@ -73,9 +79,9 @@ Remplissez le fichier `report.txt`  avec les informations suivantes :
 
 - Prénoms et noms des étudiants du trinôme.
 - Identifiant de connexion attribué.
-- Sommes de contrôle MD5 des fichiers .fastq.gz.
-- Nombre de reads dans chaque fichier .fastq.gz.
-- Somme de contrôle MD5 du fichier de résultats .log généré.
+- Sommes de contrôle MD5 des fichiers `.fastq.gz`.
+- Nombre de reads dans chaque fichier `.fastq.gz`.
+- Somme de contrôle MD5 du fichier de résultats `.log` généré.
 
 Téléchargez le fichier de résultats de l'analyse RNA-seq sur votre machine locale. Pour cela, lancez la commande suivante depuis un terminal de votre machine locale (vous n'êtes plus connectés au serveur) :
 ```
