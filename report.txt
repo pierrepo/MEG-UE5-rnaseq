@@ -1,0 +1,33 @@
+Prénom étudiant 1 :
+
+Nom étudiant 1 :
+
+
+Prénom étudiant 2 :
+
+Nom étudiant 2 : 
+
+
+Prénom étudiant 3 :
+
+Nom étudiant 3 :
+
+
+Identifiant : 
+
+
+Sommes de contrôle MD5 des fichiers .fastq.gz (nom du fichier et somme) :
+
+
+
+Nombre de reads dans chaque fichier .fastq.gz (nom du fichier et nombre de reads) :
+
+
+
+Somme de contrôle MD5 du fichier de résultats .log généré (nom du fichier et somme):
+
+
+
+
+
+
