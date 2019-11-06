@@ -5,6 +5,12 @@
 
 ## 1. Connexion au serveur
 
+---
+
+Attention : si vous utilisez une machine du Script, la procédure sera légèrement différente !
+
+---
+
 Avec votre identifiant, votre mot de passe et l'adresse IP du serveur, connectez-vous au serveur avec la commande :
 ```
 $ ssh login@adresse-serveur
@@ -14,7 +20,7 @@ où `login` et `adresse-serveur` sont à adapter.
 
 On rappelle que le caractère `$` en début de ligne représente l'invite de commande et n'est pas à taper.
 
-À l'invite `login@adresse-serveur's password:` entrez le mot de passe. Attention, vous entrez le mot de passe en aveugle, c'est-à-dire sans voir les carctères que vous tapez.
+À l'invite `login@adresse-serveur's password:` entrez le mot de passe. Attention, vous entrez le mot de passe en aveugle, c'est-à-dire sans voir les caractères que vous tapez.
 
 Si tout se passe bien, votre nouvelle invite de commande devrait être :
 ```
