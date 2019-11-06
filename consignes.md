@@ -77,18 +77,14 @@ Remplissez le fichier `report.txt`  avec les informations suivantes :
 - Nombre de reads dans chaque fichier .fastq.gz.
 - Somme de contrôle MD5 du fichier de résultats .log généré.
 
-Téléchargez le fichier de rapport sur votre machine locale. Pour cela, lancez la commande suivante depuis un terminal de votre machine locale (vous n'êtes plus connectés au serveur) :
+Téléchargez le fichier de résultats de l'analyse RNA-seq sur votre machine locale. Pour cela, lancez la commande suivante depuis un terminal de votre machine locale (vous n'êtes plus connectés au serveur) :
 ```
 $ scp login@adresse-serveur:~/project/*.log ./
 ```
 
-
-
-
-
 Déposez sur Moodle :
 - le fichier `report.txt` complété,
-- le fichier de résultats .log.
+- le fichier de résultats `.log` de l'analyse RNA-seq.
 
 
 
