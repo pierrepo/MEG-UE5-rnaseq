@@ -96,7 +96,7 @@ Téléchargez le fichier de résultats de l'analyse RNA-seq sur votre machine lo
 $ scp login@adresse-serveur:~/project/*.log ./
 ```
 
-Déposez sur Moodle :
+Déposez sur Moodle (1 seul dépôt par trinôme) :
 - le fichier `report.txt` complété,
 - le fichier de résultats `.log` de l'analyse RNA-seq.
 
