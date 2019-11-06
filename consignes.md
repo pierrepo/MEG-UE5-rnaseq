@@ -51,7 +51,7 @@ $ conda activate rnaseq
 
 La gauche de votre invite de commande est modifiée pour devenir : 
 ```
-(rnaseq) login@babyplasma:~$
+(rnaseq) login@babyplasma:~/project$
 ```
 
 
@@ -70,7 +70,9 @@ Toujours depuis le répertoire `project`, entrez la commande :
 $ bash workflow.sh
 ```
 
-Nomalement l'analyse est lancée ! 
+Normalement l'analyse est lancée ! Patientez quelques minutes.
+
+Le message `Well done!` est affiché quand l'analyse s'est terminée correctement.
 
 
 ## 4. Rapport
