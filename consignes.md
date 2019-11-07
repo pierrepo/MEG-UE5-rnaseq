@@ -48,7 +48,7 @@ b9b03aea7774909bbd1664bd18b6142a
 
 ## 2. Préparation des logiciels
 
-Les outils trimmomatic, hisat2 et samtools nécessaires pour cette analyse RNA-seq ont été installés avec le gestionnaire de paquet conda, qui est désormais un standard en bioinformatique.
+Les outils trimmomatic, hisat2 et samtools nécessaires pour cette analyse RNA-seq ont été installés avec le gestionnaire de paquets conda, qui est désormais un standard en bioinformatique.
 
 Pour que ces outils soient disponibles, entrez la commande :
 ```
