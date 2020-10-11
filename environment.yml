@@ -1,4 +1,4 @@
-name: rnaseq
+name: rnaseq-meg-m1-ue5
 # channels priority
 # see https://bioconda.github.io/
 # conda-forge has highest prioriy
