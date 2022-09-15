@@ -45,9 +45,6 @@ echo "# 1. trim/clean samples                                               " | 
 echo "#=====================================================================" | tee -a "${logfile}"
 echo "start: $(date +'%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 
-# define sample name
-sample_name="GUP-1_6p"
-
 # Define sample directory.
 sample_dir="chr6p_samples"
 
@@ -55,11 +52,15 @@ sample_dir="chr6p_samples"
 trim_dir="chr6p_trim"
 mkdir -p ${trim_dir}
 
-trimmomatic PE -threads 2 \
-    ${sample_dir}/${sample_name}_R1.fastq.gz \
-    ${sample_dir}/${sample_name}_R2.fastq.gz \
-    -baseout ${trim_dir}/${sample_name}_trim.fastq.gz \
-    ILLUMINACLIP:${CONDA_PREFIX}/share/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+for sample_name in GUP-1_6p GUP-3_6p
+do
+	echo "Trim sample ${sample_name}" | tee -a "${logfile}"
+	trimmomatic PE -threads 2 \
+		${sample_dir}/${sample_name}_R1.fastq.gz \
+		${sample_dir}/${sample_name}_R2.fastq.gz \
+		-baseout ${trim_dir}/${sample_name}_trim.fastq.gz \
+		ILLUMINACLIP:${CONDA_PREFIX}/share/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+done
 
 # After trimming we keep only 'paired' reads: *P.fastq.gz
 
@@ -108,24 +109,24 @@ mkdir -p ${map_dir}
 # Go into ${map_dir}
 cd ${map_dir}
 
-# define sample name
-sample_name="GUP-1_6p"
-
 for genome_name in chr6p-pgf chr6p-cox
 do
-    echo "map ${sample_name} on ${genome_name}"
-    hisat2 -x ../${index_dir}/${genome_name} \
-        --rna-strandness FR \
-        -1 ../${trim_dir}/${sample_name}_trim_1P.fastq.gz \
-        -2 ../${trim_dir}/${sample_name}_trim_2P.fastq.gz \
-        2> ${sample_name}_on_${genome_name}.log | \
-        samtools sort -T ${sample_name}_on_${genome_name} -o ${sample_name}_on_${genome_name}.bam -
-    # --rna-strandness FR: to specify the forward strand (FR) that is sequenced in this RNASEq library
-    # Log file produced by hisat2 contains counts of mapped and unmapped reads
+	for sample_name in GUP-1_6p GUP-3_6p
+	do
+    	echo "map sample ${sample_name} on genome ${genome_name}" | tee -a "../${logfile}"
+    	hisat2 -x ../${index_dir}/${genome_name} \
+        	--rna-strandness FR \
+        	-1 ../${trim_dir}/${sample_name}_trim_1P.fastq.gz \
+        	-2 ../${trim_dir}/${sample_name}_trim_2P.fastq.gz \
+        	2> ${sample_name}_on_${genome_name}.log | \
+        	samtools sort -T ${sample_name}_on_${genome_name} -o ${sample_name}_on_${genome_name}.bam -
+    	# --rna-strandness FR: to specify the forward strand (FR) that is sequenced in this RNASEq library
+    	# Log file produced by hisat2 contains counts of mapped and unmapped reads
 
-	# Samtools is only used to reorganized mapped reads.
-    samtools index -b ${sample_name}_on_${genome_name}.bam
-    mv "${sample_name}_on_${genome_name}.bam.bai" "${sample_name}_on_${genome_name}.bai"
+		# Samtools is only used to reorganized mapped reads.
+	    samtools index -b ${sample_name}_on_${genome_name}.bam
+    	mv "${sample_name}_on_${genome_name}.bam.bai" "${sample_name}_on_${genome_name}.bai"
+	done
 done
 
 cd ..
@@ -142,16 +143,16 @@ echo "start: $(date +'%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 # Go into ${map_dir}
 cd ${map_dir}
 
-# define sample name
-sample_name="GUP-1_6p"
-
 echo "Sample   on genome   :  total_reads no_mismatch_reads percentage" | tee -a "../${logfile}"
-for genome_name in chr6p-pgf chr6p-cox
+for sample_name in GUP-1_6p GUP-3_6p
 do
-    total_reads=$(samtools view ${sample_name}_on_${genome_name}.bam ${genome_name}:28734408-33383765 | uniq | wc -l)
-    nomismatch_reads=$(samtools view ${sample_name}_on_${genome_name}.bam ${genome_name}:28734408-33383765 | grep "NM:i:0" | uniq | wc -l)
-    percentage=$(echo "scale=3; ${nomismatch_reads}/${total_reads}*100" | bc -l)
-    echo "${sample_name} on ${genome_name}:  ${total_reads} ${nomismatch_reads} ${percentage}" | tee -a "../${logfile}"
+    for genome_name in chr6p-pgf chr6p-cox
+    do
+    	total_reads=$(samtools view ${sample_name}_on_${genome_name}.bam ${genome_name}:28734408-33383765 | uniq | wc -l)
+    	nomismatch_reads=$(samtools view ${sample_name}_on_${genome_name}.bam ${genome_name}:28734408-33383765 | grep "NM:i:0" | uniq | wc -l)
+    	percentage=$(echo "scale=3; ${nomismatch_reads}/${total_reads}*100" | bc -l)
+    	echo "${sample_name} on ${genome_name}:  ${total_reads} ${nomismatch_reads} ${percentage}" | tee -a "../${logfile}"
+    done
 done
 
 cd ..
