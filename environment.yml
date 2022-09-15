@@ -1,13 +1,13 @@
 name: rnaseq-meg-m1-ue5
 # channels priority
 # see https://bioconda.github.io/
-# conda-forge has highest prioriy
+# conda-forge has highest priority
 channels:
     - defaults
     - bioconda
     - conda-forge
 dependencies:
-    - hisat2    
-    - samtools
-    - trimmomatic
+    - hisat2==2.1.0    
+    - samtools==1.9
+    - trimmomatic==0.39
 
