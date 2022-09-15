@@ -123,7 +123,7 @@ do
     	# --rna-strandness FR: to specify the forward strand (FR) that is sequenced in this RNASEq library
     	# Log file produced by hisat2 contains counts of mapped and unmapped reads
 
-		# Samtools is only used to reorganized mapped reads.
+		# Samtools indexes mapped reads.
 	    samtools index -b ${sample_name}_on_${genome_name}.bam
     	mv "${sample_name}_on_${genome_name}.bam.bai" "${sample_name}_on_${genome_name}.bai"
 	done
