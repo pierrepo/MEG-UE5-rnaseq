@@ -98,7 +98,7 @@ echo "end  : $(date +'%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 
 # Map samples on reference genomes.
 echo "#=====================================================================" | tee -a "${logfile}"
-echo "# 3. map samples on genome + index maping                             " | tee -a "${logfile}"
+echo "# 3. map samples on genome + index mapping                            " | tee -a "${logfile}"
 echo "#=====================================================================" | tee -a "${logfile}"
 echo "start: $(date +'%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 
