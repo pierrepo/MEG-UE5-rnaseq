@@ -1,0 +1,73 @@
+Running workflow.sh for user pierre on computer camadro01
+#=====================================================================
+# 0. Data & software                                                  
+#=====================================================================
+Initial data to work with:
+[142M]  chr6p_samples/
+├── [ 40M]  GUP-1_6p_R1.fastq.gz
+├── [ 42M]  GUP-1_6p_R2.fastq.gz
+├── [ 30M]  GUP-3_6p_R1.fastq.gz
+└── [ 31M]  GUP-3_6p_R2.fastq.gz
+[114M]  chr6p_genomes/
+├── [ 57M]  chr6p-cox.fa
+└── [ 57M]  chr6p-pgf.fa
+[ 16M]  chr6p_annotations/
+├── [7.0M]  chr6-cox.gtf
+└── [8.9M]  chr6-pgf.gtf
+
+  16M used in 0 directories, 2 files
+143M	chr6p_samples/
+115M	chr6p_genomes/
+16M	chr6p_annotations/
+273M	total
+Software (name and version):
+trimmomatic version:
+0.39
+hisat2 version:
+/home/pierre/.soft/miniconda3/envs/rnaseq-meg-m1-ue5/bin/hisat2-align-s version 2.1.0
+samtools version:
+samtools 1.9
+#=====================================================================
+# 1. trim/clean samples                                               
+#=====================================================================
+start: 2023-09-15 09:13:06
+Trim sample GUP-1_6p
+Trim sample GUP-3_6p
+end  : 2023-09-15 09:13:27
+#=====================================================================
+# 2. index reference genomes                                          
+#=====================================================================
+start: 2023-09-15 09:13:27
+Build index for genome chr6p-pgf
+Build index for genome chr6p-cox
+end  : 2023-09-15 09:15:02
+#=====================================================================
+# 3. map samples on genome + index mapping                            
+#=====================================================================
+start: 2023-09-15 09:15:02
+map sample GUP-1_6p on genome chr6p-pgf
+map sample GUP-3_6p on genome chr6p-pgf
+map sample GUP-1_6p on genome chr6p-cox
+map sample GUP-3_6p on genome chr6p-cox
+end  : 2023-09-15 09:16:28
+#===================================================================== 
+# 4. count number of mapped reads (with and without mismatches)        
+#===================================================================== 
+start: 2023-09-15 09:16:28
+Sample   on genome   :  total_reads no_mismatch_reads percentage
+GUP-1_6p on chr6p-pgf:  190262 176544 92.700
+GUP-1_6p on chr6p-cox:  139919 75468 53.900
+GUP-3_6p on chr6p-pgf:  82945 53182 64.100
+GUP-3_6p on chr6p-cox:  99059 92496 93.300
+end  : 2023-09-15 09:16:29
+#===================================================================== 
+# Size of data: initial and generated                                            
+#===================================================================== 
+16M	chr6p_annotations/
+115M	chr6p_genomes/
+297M	chr6p_index/
+257M	chr6p_map/
+143M	chr6p_samples/
+135M	chr6p_trim/
+960M	total
+Well done!

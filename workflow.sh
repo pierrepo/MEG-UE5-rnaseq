@@ -157,7 +157,7 @@ done
 
 cd ..
 
-echo "end  : $(date +'%Y-%m-%d %H:%M:%S')" | tee -a "../${logfile}"
+echo "end  : $(date +'%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 
 
 # Final statement on data.
