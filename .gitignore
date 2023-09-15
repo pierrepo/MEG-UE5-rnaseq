@@ -1,3 +1,5 @@
 chr6p_*/
 *.tgz
 
+.ipynb_checkpoints/
+
